@@ -1,0 +1,12 @@
+//to iste co WebServlet anotacia v classe
+
+  <servlet>
+    <servlet-name>simpleServletXml</servlet-name>
+    <servlet-class>sk.kikocernak.servlety.SimpleServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>simpleServletXml</servlet-name>
+    <url-pattern>simpleservletxml</url-pattern>
+    <url-pattern>simpleservletxml2</url-pattern>
+  </servlet-mapping>
