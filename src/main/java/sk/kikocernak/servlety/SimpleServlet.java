@@ -5,6 +5,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,14 +21,20 @@ public class SimpleServlet extends HttpServlet {
         out.println("<h1>Som v SimpleServlet</h1>");
 
         String meno = req.getParameter("meno");
+        String priezvisko = req.getParameter("priezvisko");
 
         out.println("<br>");
         out.printf("meno: %s", meno);
         out.println("<br>");
-
-        String priezvisko = req.getParameter("priezvisko");
         out.printf("priezvisko: %s", priezvisko);
         out.println("<br>");
+
+        HttpSession session = req.getSession();
+        if(meno != null && !meno.isEmpty()){
+            session.setAttribute("ulozeneMeno", meno);
+        }
+
+        out.printf("ulozene meno: %s", session.getAttribute("ulozeneMeno"));
 
         out.println("</html></body>");
     }
