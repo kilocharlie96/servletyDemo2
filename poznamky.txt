@@ -1,4 +1,5 @@
-//to iste co WebServlet anotacia v classe
+//nahrada WebServlet anotacie v classe
+//copy to web.xml
 
   <servlet>
     <servlet-name>simpleServletXml</servlet-name>
@@ -10,3 +11,14 @@
     <url-pattern>simpleservletxml</url-pattern>
     <url-pattern>simpleservletxml2</url-pattern>
   </servlet-mapping>
+
+  //nahrada WebFilter anotacie
+  //copy to web.xml
+    <filter>
+      <filter-name>FirstFilterXml</filter-name>
+      <filter-class>sk.kikocernak.filtre.FirstFilter</filter-class>
+      <init-param>
+        <param-name>meno</param-name>
+        <param-value>Kikusko Cernak</param-value>
+      </init-param>
+    </filter>

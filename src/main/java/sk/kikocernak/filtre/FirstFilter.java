@@ -10,7 +10,10 @@ import java.io.IOException;
 public class FirstFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        Filter.super.init(filterConfig);
+        System.out.println("Som vo filtri");
+        System.out.println(filterConfig.getFilterName());
+        System.out.println(filterConfig.getInitParameter("meno"));
+        filterConfig.getServletContext().setAttribute("filter", "First filter context upraveny");
     }
 
     @Override
