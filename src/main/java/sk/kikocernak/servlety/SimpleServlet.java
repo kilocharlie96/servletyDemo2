@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+//urlPatterns len ked chcem mapovat servlet na viac url adries
 @WebServlet(urlPatterns = {"/simpleservlet", "/daco"})
 public class SimpleServlet extends HttpServlet {
     @Override
@@ -40,6 +41,14 @@ public class SimpleServlet extends HttpServlet {
         out.printf("ulozene meno: %s", session.getAttribute("ulozeneMeno"));
         out.println("<br>");
         out.printf("kontextUlozeneMeno: %s", context.getAttribute("kontextUlozeneMeno"));
+
+        String filterAttribute = (String) req.getSession().getAttribute("filterAttribute");
+        out.println("<br>");
+        out.printf("filterAttribute: %s", filterAttribute);
+
+        String contextAttribute = (String) req.getServletContext().getAttribute("filter");
+        out.println("<br>");
+        out.printf("contextAttribute: %s", contextAttribute);
 
         out.println("</html></body>");
     }
