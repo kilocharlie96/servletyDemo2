@@ -5,6 +5,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -29,7 +30,13 @@ public class FirstFilter implements Filter {
 
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         req.getSession().setAttribute("filterAttribute", "presiel som cez first filter");
-        filterChain.doFilter(req, servletResponse);
+//        filterChain.doFilter(req, servletResponse);
+
+
+        HttpServletResponse resp = (HttpServletResponse) servletResponse;
+//        resp.sendRedirect("");
+
+        req.getRequestDispatcher("").forward(req, servletResponse);
     }
 
     @Override
