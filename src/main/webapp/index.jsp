@@ -1,5 +1,5 @@
 <html>
 <body>
-<h2>Stranka je dojebana ale uz na nej pracuje specialne vyskoleny profesional</h2>
+<h2>Hello World!</h2>
 </body>
 </html>
