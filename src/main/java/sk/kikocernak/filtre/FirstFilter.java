@@ -25,7 +25,7 @@ public class FirstFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-//        PrintWriter out = servletResponse.getWriter();
+        PrintWriter out = servletResponse.getWriter();
 //        out.println("Stránka nefunguje");
 
         HttpServletRequest req = (HttpServletRequest) servletRequest;
@@ -34,9 +34,10 @@ public class FirstFilter implements Filter {
 
 
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
-//        resp.sendRedirect("");
 
-        req.getRequestDispatcher("").forward(req, servletResponse);
+        out.println("Ahoj z filtru");
+        req.getRequestDispatcher("").include(req, servletResponse);
+        out.println("Dovidenia z filtru");
     }
 
     @Override
