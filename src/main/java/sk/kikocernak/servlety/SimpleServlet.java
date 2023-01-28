@@ -18,9 +18,9 @@ public class SimpleServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter out = resp.getWriter();
 
-        out.println("<!DOCTYPE html> <html><body>");
 
-        out.println("<h1>Som v SimpleServlet</h1>");
+        out.println("<!DOCTYPE html> <html><body>");
+        out.println("<h1>Som v SimpleServlet mäkčeňé</h1>");
 
         String meno = req.getParameter("meno");
         String priezvisko = req.getParameter("priezvisko");
@@ -29,26 +29,6 @@ public class SimpleServlet extends HttpServlet {
         out.printf("meno: %s", meno);
         out.println("<br>");
         out.printf("priezvisko: %s", priezvisko);
-        out.println("<br>");
-
-        HttpSession session = req.getSession();
-        ServletContext context = req.getServletContext();
-        if(meno != null && !meno.isEmpty()){
-            session.setAttribute("ulozeneMeno", meno);
-            context.setAttribute("kontextUlozeneMeno", meno);
-        }
-
-        out.printf("ulozene meno: %s", session.getAttribute("ulozeneMeno"));
-        out.println("<br>");
-        out.printf("kontextUlozeneMeno: %s", context.getAttribute("kontextUlozeneMeno"));
-
-        String filterAttribute = (String) req.getSession().getAttribute("filterAttribute");
-        out.println("<br>");
-        out.printf("filterAttribute: %s", filterAttribute);
-
-        String contextAttribute = (String) req.getServletContext().getAttribute("filter");
-        out.println("<br>");
-        out.printf("contextAttribute: %s", contextAttribute);
 
         out.println("</html></body>");
     }
