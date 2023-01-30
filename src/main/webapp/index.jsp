@@ -46,6 +46,12 @@
       }
   %>
 
+  <%
+    String sprava = request.getParameter("sprava");
+  %>
+
+  <h2><%= sprava %></h2>
+
 <%@ include file="/footer.jsp"%>
 </body>
 </html>
