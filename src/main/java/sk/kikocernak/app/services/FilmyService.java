@@ -1,9 +1,11 @@
 package sk.kikocernak.app.services;
 
 import sk.kikocernak.app.model.Film;
+import sk.kikocernak.app.model.dto.FilmDto;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class FilmyService {
 
@@ -13,7 +15,23 @@ public class FilmyService {
             new Film("Star Wars","scifi"),
             new Film("Stargate","scifi")
     );
-    public List<Film> dajZoznamFilmovPodlaZanru(String zaner){
+    public List<FilmDto> dajZoznamFilmovPodlaZanru(String zaner){
+        if(zaner==null || zaner.isEmpty()){
+            return null;
+        }
 
+        List<Film> filmy = filmyMock.stream()
+                .filter(film -> zaner.equalsIgnoreCase(film.getZaner())).collect(Collectors.toList());
+
+        return filmy.stream()
+                .map(this::preklopNaDto)
+                .collect(Collectors.toList());
+    }
+
+    private FilmDto preklopNaDto(Film film) {
+        FilmDto filmDto = new FilmDto();
+        filmDto.setNazov(film.getNazov());
+        filmDto.setZaner(film.getZaner());
+        return filmDto;
     }
 }
