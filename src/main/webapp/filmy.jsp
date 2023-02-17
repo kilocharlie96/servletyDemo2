@@ -22,6 +22,10 @@
     }
    }
 %>
+
+<%=request.getParameter("zaner")%>
+<br>
+${zaner}
 </ul>
 </body>
 </html>
