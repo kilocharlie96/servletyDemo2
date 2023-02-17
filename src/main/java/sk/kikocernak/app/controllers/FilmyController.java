@@ -23,6 +23,8 @@ public class FilmyController extends HttpServlet {
 
         req.setAttribute("filmy", filmy);
         req.setAttribute("zaner", zaner);
+        req.setAttribute("film", filmy.get(0));
+
         req.getRequestDispatcher("filmy.jsp").forward(req, resp);
     }
 }

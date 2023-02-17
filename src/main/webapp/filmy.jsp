@@ -22,10 +22,13 @@
     }
    }
 %>
+</ul>
 
 <%=request.getParameter("zaner")%>
+
 <br>
 ${zaner}
-</ul>
+<br>
+${film.nazov}
 </body>
 </html>
