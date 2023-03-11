@@ -1,6 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page import="sk.kikocernak.app.model.dto.FilmDto" %>
-<%@ page import="java.util.List" %>
 <%@ taglib prefix= "c" uri= "http://java.sun.com/jsp/jstl/core" %>
 <html>
 <body>
@@ -14,19 +12,11 @@
 </form>
 
 <h4>Filmy:</h4>
-<ul>
-<%
-   List<FilmDto> films = (List <FilmDto>) request.getAttribute("filmy");
-   if(films != null){
-   for(FilmDto film : films){
-        out.print("<li>"+film.getNazov()+"</li>");
-    }
-   }
-%>
-</ul>
 
 <ul>
-
+    <c:forEach items="${filmy}" var="film">
+        <li>${film.nazov} - ${film.zaner}</li>
+    </c:forEach>
 </ul>
 
 </body>
